@@ -140,7 +140,14 @@ inline void HandleShortMsg(uint8_t *data)
     {
     /* note on */
     case 0x90:
-        Midi_NoteOn(data[1], data[2]);
+        if (data[2] > 0)
+        {
+            Midi_NoteOn(data[1], data[2]);
+        }
+        else
+        {
+            Midi_NoteOff(data[1]);
+        }
         break;
     /* note off */
     case 0x80:
