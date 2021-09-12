@@ -1,7 +1,8 @@
 # esp32_drum_computer
 ESP32 drum computer / sample player / midi sequencer (Arduino audio project)
 
-The project can be seen in my video https://youtu.be/vvA7vfouk84
+- video presentation of the initial state of this project https://youtu.be/vvA7vfouk84
+- little quick start guide to get started with arduino synthesizer / music projects: https://youtu.be/ZNxGCB-d68g
 
 The project has been tested on the DOIT ESP32 DEVKIT V1
 
