@@ -196,21 +196,21 @@ uint8_t selectedNote = 0;
 
 inline void Sampler_SelectNote(uint8_t note)
 {
-	selectedNote = note % sampleInfoCount;
+    selectedNote = note % sampleInfoCount;
 }
 
 inline void Sampler_SetDecay(uint8_t ch, uint8_t data1, uint8_t data2)
 {
-	float value = NORM127MUL * (float)data2;
-	samplePlayer[selectedNote].decay = 1 - (0.000005 * pow(5000, 1.0f - value));
-	Serial.printf("Sampler - Note[%d].decay: %0.2f\n",  selectedNote, samplePlayer[selectedNote].decay);
+    float value = NORM127MUL * (float)data2;
+    samplePlayer[selectedNote].decay = 1 - (0.000005 * pow(5000, 1.0f - value));
+    Serial.printf("Sampler - Note[%d].decay: %0.2f\n",  selectedNote, samplePlayer[selectedNote].decay);
 }
 
 
 void Sampler_SetSoundPitch(float value)
 {
-	samplePlayer[selectedNote].pitch = pow(2.0f, 4.0f * (value - 0.5f));
-	Serial.printf("Sampler - Note[%d].pitch: %0.2f\n",  selectedNote, samplePlayer[selectedNote].pitch);
+    samplePlayer[selectedNote].pitch = pow(2.0f, 4.0f * (value - 0.5f));
+    Serial.printf("Sampler - Note[%d].pitch: %0.2f\n",  selectedNote, samplePlayer[selectedNote].pitch);
 }
 
 inline void Sampler_NoteOn(uint8_t note, uint8_t vol)
