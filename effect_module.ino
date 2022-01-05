@@ -21,11 +21,11 @@ struct filterProcT
 struct filterCoeffT filterGlobalC_LP, filterGlobalC_HP;
 struct filterProcT mainFilterL_LP, mainFilterR_LP, mainFilterL_HP, mainFilterR_HP;
 
-#define WAVEFORM_BIT	10UL
-#define WAVEFORM_CNT	(1<<WAVEFORM_BIT)
-#define WAVEFORM_Q4		(1<<(WAVEFORM_BIT-2))
-#define WAVEFORM_MSK	((1<<WAVEFORM_BIT)-1)
-#define WAVEFORM_I(i)	((i) >> (32 - WAVEFORM_BIT)) & WAVEFORM_MSK
+#define WAVEFORM_BIT    8UL /* 10 might be better here but needs much more memory */
+#define WAVEFORM_CNT    (1<<WAVEFORM_BIT)
+#define WAVEFORM_Q4     (1<<(WAVEFORM_BIT-2))
+#define WAVEFORM_MSK    ((1<<WAVEFORM_BIT)-1)
+#define WAVEFORM_I(i)   ((i) >> (32 - WAVEFORM_BIT)) & WAVEFORM_MSK
 
 float sine[WAVEFORM_CNT];
 
