@@ -11,8 +11,8 @@
 
 #define CONFIG_LITTLEFS_CACHE_SIZE 512
 
-#define BLOCKSIZE	(2048*1) /* only multiples of 2, otherwise the rest will not work */
-#define SAMPLECNT	12
+#define BLOCKSIZE	(512*1) /* only multiples of 2, otherwise the rest will not work */
+#define SAMPLECNT	8
 
 #define ARRAY_SIZE(a)	(sizeof(a)/sizeof(a[0]))
 

@@ -4,7 +4,7 @@
  * Author: Marcel Licence
  */
 
-#define SEQ_TRACK_CNT	12
+#define SEQ_TRACK_CNT	8
 #define SEQ_STEPS		16
 
 /*
