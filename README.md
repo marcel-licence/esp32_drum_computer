@@ -4,8 +4,11 @@
   <img src="img/splash.jpg" alt="project picture" width="480px" height="270px"><br>
   <a href="video https://youtu.be/vvA7vfouk84">link to the video</a>
 </p>
+
 ---
-The project can be seen in my video https://youtu.be/vvA7vfouk84
+
+- video presentation of the initial state of this project https://youtu.be/vvA7vfouk84
+- little quick start guide to get started with arduino synthesizer / music projects: https://youtu.be/ZNxGCB-d68g
 
 The project has been tested on the DOIT ESP32 DEVKIT V1 (with ES8388)
 
@@ -20,5 +23,5 @@ Please feel free to use the discussion area of this project: https://github.com/
 
 Derived projects 
 ---
-Thanks to ErichHeinemann, he made a Volca Beats PCM MOD based on my project: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
-Video of the Volca Beats PCM MOD https://youtu.be/XIrn2-dZn1U
+@ErichHeinemann made a Volca Beats PCM MOD with display and additional controls: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
+Video of the Volca Beats PCM MOD https://youtu.be/XIrn2-dZn1U (2) https://youtu.be/J7IOvEoxopA (3) https://youtu.be/R3fIEp8z8aU
