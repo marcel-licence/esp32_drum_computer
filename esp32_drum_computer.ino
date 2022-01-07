@@ -53,6 +53,9 @@
 
 //#define SPI_DISP_ENABLED
 #include <ml_reverb.h>
+#ifdef OLED_OSC_DISP_ENABLED
+#include <ml_scope.h>
+#endif
 
 
 void setup()
@@ -88,7 +91,8 @@ void setup()
      * The buffer shall be static to ensure that
      * the memory will be exclusive available for the reverb module
      */
-    static float revBuffer[REV_BUFF_SIZE];
+    //static float revBuffer[REV_BUFF_SIZE];
+    static float *revBuffer = (float *)malloc(sizeof(float) * REV_BUFF_SIZE);
     Reverb_Setup(revBuffer);
 
 #ifdef ESP32
@@ -104,7 +108,64 @@ void setup()
     Serial.printf("Total PSRAM: %d\n", ESP.getPsramSize());
     Serial.printf("Free PSRAM: %d\n", ESP.getFreePsram());
 #endif
+
+#ifdef OLED_OSC_DISP_ENABLED
+    Core0TaskInit();
+#endif
 }
+
+
+#ifdef ESP32
+/*
+ * Core 0
+ */
+/* this is used to add a task to core 0 */
+TaskHandle_t Core0TaskHnd;
+
+inline
+void Core0TaskInit()
+{
+    /* we need a second task for the terminal output */
+    xTaskCreatePinnedToCore(Core0Task, "CoreTask0", 8000, NULL, 999, &Core0TaskHnd, 0);
+}
+
+inline
+void Core0TaskSetup()
+{
+    /*
+     * init your stuff for core0 here
+     */
+
+#ifdef OLED_OSC_DISP_ENABLED
+    ScopeOled_Setup();
+#endif
+}
+
+void Core0TaskLoop()
+{
+    /*
+     * put your loop stuff for core0 here
+     */
+
+#ifdef OLED_OSC_DISP_ENABLED
+    ScopeOled_Process();
+#endif
+}
+
+void Core0Task(void *parameter)
+{
+    Core0TaskSetup();
+
+    while (true)
+    {
+        Core0TaskLoop();
+
+        /* this seems necessary to trigger the watchdog */
+        delay(1);
+        yield();
+    }
+}
+#endif /* ESP32 */
 
 static float fl_sample[SAMPLE_BUFFER_SIZE];
 static float fr_sample[SAMPLE_BUFFER_SIZE];
@@ -136,6 +197,10 @@ inline void audio_task()
     memcpy(fr_sample,  fl_sample, sizeof(fr_sample));
 
     Audio_Output(fl_sample, fr_sample);
+
+#ifdef OLED_OSC_DISP_ENABLED
+    ScopeOled_AddSamples(fl_sample, fr_sample, SAMPLE_BUFFER_SIZE);
+#endif
 }
 
 inline
