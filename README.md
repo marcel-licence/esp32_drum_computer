@@ -21,9 +21,13 @@
 
 ---
 
+<br>
+
 ## Tested On
 
 - `DOIT ESP32 DEVKIT V1` ( `ESES8388` )
+
+<br>
 
 ## Usage
 
@@ -34,6 +38,7 @@
 
 *The files will be mapped to the keys.*
 
+<br>
 
 ## Projects 
 
