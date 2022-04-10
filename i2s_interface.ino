@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Marcel Licence
+ * Copyright (c) 2022 Marcel Licence
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,15 +14,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
+ * Dieses Programm ist Freie Software: Sie kÃ¶nnen es unter den Bedingungen
  * der GNU General Public License, wie von der Free Software Foundation,
  * Version 3 der Lizenz oder (nach Ihrer Wahl) jeder neueren
- * veröffentlichten Version, weiter verteilen und/oder modifizieren.
+ * verÃ¶ffentlichten Version, weiter verteilen und/oder modifizieren.
  *
- * Dieses Programm wird in der Hoffnung bereitgestellt, dass es nützlich sein wird, jedoch
- * OHNE JEDE GEWÄHR,; sogar ohne die implizite
- * Gewähr der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
- * Siehe die GNU General Public License für weitere Einzelheiten.
+ * Dieses Programm wird in der Hoffnung bereitgestellt, dass es nÃ¼tzlich sein wird, jedoch
+ * OHNE JEDE GEWÃ„HR,; sogar ohne die implizite
+ * GewÃ¤hr der MARKTFÃ„HIGKEIT oder EIGNUNG FÃœR EINEN BESTIMMTEN ZWECK.
+ * Siehe die GNU General Public License fÃ¼r weitere Einzelheiten.
  *
  * Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
  * Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
@@ -303,7 +303,11 @@ i2s_config_t i2s_configuration =
 #ifdef I2S_NODAC
     .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT,
     .channel_format = I2S_CHANNEL_FMT_ONLY_LEFT,
+#ifdef ARDUINO_RUNNING_CORE /* tested with arduino esp32 core version 2.0.2 */
+    .communication_format = I2S_COMM_FORMAT_STAND_I2S,
+#else
     .communication_format = (i2s_comm_format_t)I2S_COMM_FORMAT_I2S_MSB,
+#endif
 #else
 #ifdef SAMPLE_SIZE_32BIT
     .bits_per_sample = I2S_BITS_PER_SAMPLE_32BIT, /* the DAC module will only take the 8bits from MSB */
@@ -315,7 +319,11 @@ i2s_config_t i2s_configuration =
     .bits_per_sample = I2S_BITS_PER_SAMPLE_16BIT, /* the DAC module will only take the 8bits from MSB */
 #endif
     .channel_format = I2S_CHANNEL_FMT_RIGHT_LEFT,
+#ifdef ARDUINO_RUNNING_CORE /* tested with arduino esp32 core version 2.0.2 */
+    .communication_format = I2S_COMM_FORMAT_STAND_I2S,
+#else
     .communication_format = (i2s_comm_format_t)(I2S_COMM_FORMAT_I2S | I2S_COMM_FORMAT_I2S_MSB),
+#endif
 #endif
     .intr_alloc_flags = 0, // default interrupt priority
     .dma_buf_count = 8,

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Marcel Licence
+ * Copyright (c) 2022 Marcel Licence
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,11 +28,16 @@
  * Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
  */
 
-/*
- * this file is the main project file which can be opened and compiled with arduino
+/**
+ * @file ml_synth_basic_example.ino
+ * @author Marcel Licence
+ * @date 27.03.2021
  *
- * Author: Marcel Licence
+ * @brief   This file is the main project file which can be opened and compiled with arduino
+ *
+ * The project is shown in this video: @see https://youtu.be/vvA7vfouk84
  */
+
 
 #ifdef __CDT_PARSER__
 #include <cdt.h>
@@ -47,11 +52,13 @@
 
 #include <Arduino.h>
 #include <FS.h>
-#include <LITTLEFS.h>
+
 //#include <SD_MMC.h>
 //#include <WiFi.h>
 
 //#define SPI_DISP_ENABLED
+
+/* requires the ML_SynthTools library: https://github.com/marcel-licence/ML_SynthTools */
 #include <ml_reverb.h>
 #ifdef OLED_OSC_DISP_ENABLED
 #include <ml_scope.h>
