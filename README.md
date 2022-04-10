@@ -52,7 +52,7 @@
 
 [Badge License]: https://img.shields.io/badge/License-GPLv3-blue.svg
 
-[Preview Thumbnail]: img/Thumbnail.png
+[Preview Thumbnail]: Resources/Thumbnail.png
 [Preview]: https://youtu.be/vvA7vfouk84
 
 [Guide]: https://youtu.be/ZNxGCB-d68g
