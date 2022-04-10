@@ -29,10 +29,17 @@ Please do not forget to upload the data using the littleFs data upload.
 The files will be mapped to the keys.
 
 
-Derived projects 
----
-@ErichHeinemann made a [Volca Beats PCM MOD][Erich Github] with display and additional controls
-Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2] (3) [:tv:][Erich Video 3]
+## Projects 
+
+<br>
+
+**[@ErichHeinemann][Erich]** - [`Volca Beats PCM MOD`][Erich Github] <br>
+
+  *Adds a display as well as additional controls.*
+
+  [![Badge Erich 1]][Erich Video 1]
+ [![Badge Erich 2]][Erich Video 2]
+ [![Badge Erich 3]][Erich Video 3]
 
 
 <!----------------------------------------------------------------------------->
@@ -47,7 +54,16 @@ Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2]
 [Discussions]: https://github.com/marcel-licence/esp32_drum_computer/discussions
 [License]: LICENSE
 
+
+<!-------------------------{ Project - ErichHeinemann }------------------------>
+
 [Erich Github]: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
+[Erich]: https://github.com/ErichHeinemann/
+
+[Badge Erich 1]: https://img.shields.io/badge/Preview_A-FF0000.svg?logo=youtube
+[Badge Erich 2]: https://img.shields.io/badge/Preview_B-FF0000.svg?logo=youtube
+[Badge Erich 3]: https://img.shields.io/badge/Preview_C-FF0000.svg?logo=youtube
+
 [Erich Video 1]: https://youtu.be/XIrn2-dZn1U
 [Erich Video 2]: https://youtu.be/J7IOvEoxopA
 [Erich Video 3]: https://youtu.be/R3fIEp8z8aU
