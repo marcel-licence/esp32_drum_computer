@@ -31,7 +31,7 @@ Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2]
 
 <!----------------------------------------------------------------------------->
 
-[Preview Thumbnail]: img/splash.jpg
+[Preview Thumbnail]: img/Thumbnail.png
 [Preview Video]: https://youtu.be/vvA7vfouk84
 
 [Quick Start]: https://youtu.be/ZNxGCB-d68g
