@@ -1,27 +1,80 @@
-<h1 align="center">esp32_drum_computer</h1>
-<h3 align="center">ESP32 drum computer / sample player / midi sequencer (Arduino audio project)</h3>  
-<p align="center"> 
-  <img src="img/splash.jpg" alt="project picture" width="480px" height="270px"><br>
-  <a href="video https://youtu.be/vvA7vfouk84">link to the video</a>
-</p>
+
+<div align = center>
+
+# ESP32 Drum Computer
+
+[![Badge License]][License]
+
+[![Preview Thumbnail]][Preview]
+
+</div>
 
 ---
 
-- video presentation of the initial state of this project https://youtu.be/vvA7vfouk84
-- little quick start guide to get started with arduino synthesizer / music projects: https://youtu.be/ZNxGCB-d68g
+<div align = center>
 
-The project has been tested on the DOIT ESP32 DEVKIT V1 (with ES8388)
+  **⸢ [Preview] ⸥**
+  **⸢ [Guide] ⸥**
+  **⸢ [Discussions] ⸥**
+  
+</div>
 
-After uploading the firmware you should hear the metronome.
-The software will be automatically in recoding mode.
-Please do not forget to upload the data using the littleFs data upload.
-The files will be mapped to the keys.
-
-Questions, Ideas, Comments
 ---
-Please feel free to use the discussion area of this project: https://github.com/marcel-licence/esp32_drum_computer/discussions
 
-Derived projects 
----
-@ErichHeinemann made a Volca Beats PCM MOD with display and additional controls: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
-Video of the Volca Beats PCM MOD https://youtu.be/XIrn2-dZn1U (2) https://youtu.be/J7IOvEoxopA (3) https://youtu.be/R3fIEp8z8aU
+<br>
+
+## Tested On
+
+- `DOIT ESP32 DEVKIT V1` ( `ESES8388` )
+
+<br>
+
+## Usage
+
+*After uploading the firmware you should hear the metronome.* <br>
+*The software will be automatically in recoding mode.*
+
+***Please do not forget to upload the data using the `LittleFs` data upload.***
+
+*The files will be mapped to the keys.*
+
+<br>
+
+## Projects 
+
+<br>
+
+**[@ErichHeinemann][Erich]** - [`Volca Beats PCM MOD`][Erich Github] <br>
+
+  *Adds a display as well as additional controls.*
+
+  [![Badge Erich 1]][Erich Video 1]
+ [![Badge Erich 2]][Erich Video 2]
+ [![Badge Erich 3]][Erich Video 3]
+
+
+<!----------------------------------------------------------------------------->
+
+[Badge License]: https://img.shields.io/badge/License-GPLv3-blue.svg
+
+[Preview Thumbnail]: Resources/Thumbnail.png
+[Preview]: https://youtu.be/vvA7vfouk84
+
+[Guide]: https://youtu.be/ZNxGCB-d68g
+
+[Discussions]: https://github.com/marcel-licence/esp32_drum_computer/discussions
+[License]: LICENSE
+
+
+<!-------------------------{ Project - ErichHeinemann }------------------------>
+
+[Erich Github]: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
+[Erich]: https://github.com/ErichHeinemann/
+
+[Badge Erich 1]: https://img.shields.io/badge/Preview_A-FF0000.svg?logo=youtube
+[Badge Erich 2]: https://img.shields.io/badge/Preview_B-FF0000.svg?logo=youtube
+[Badge Erich 3]: https://img.shields.io/badge/Preview_C-FF0000.svg?logo=youtube
+
+[Erich Video 1]: https://youtu.be/XIrn2-dZn1U
+[Erich Video 2]: https://youtu.be/J7IOvEoxopA
+[Erich Video 3]: https://youtu.be/R3fIEp8z8aU
