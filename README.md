@@ -21,12 +21,18 @@
 
 ---
 
-The project has been tested on the DOIT ESP32 DEVKIT V1 (with ES8388)
+## Tested On
 
-After uploading the firmware you should hear the metronome.
-The software will be automatically in recoding mode.
-Please do not forget to upload the data using the littleFs data upload.
-The files will be mapped to the keys.
+- `DOIT ESP32 DEVKIT V1` ( `ESES8388` )
+
+## Usage
+
+*After uploading the firmware you should hear the metronome.* <br>
+*The software will be automatically in recoding mode.*
+
+***Please do not forget to upload the data using the `LittleFs` data upload.***
+
+*The files will be mapped to the keys.*
 
 
 ## Projects 
