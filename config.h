@@ -76,7 +76,7 @@
  */
 #define MIDI_RECV_FROM_SERIAL
 
-/* activate MIDI via USB (please look into usbMidiHost.ino for more information) */
+/* MIDI_VIA_USB_ENABLED activates MIDI via USB (please look into usbMidiHost.ino for more information) */
 //#define MIDI_VIA_USB_ENABLED
 
 /* use this to display a scope on the oled display */

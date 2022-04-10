@@ -1,20 +1,56 @@
 /*
- * this file includes the implementation of the sample player
- * all samples are loaded from littleFS stored on the external flash
+ * Copyright (c) 2022 Marcel Licence
  *
- * Author: Marcel Licence
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Dieses Programm ist Freie Software: Sie können es unter den Bedingungen
+ * der GNU General Public License, wie von der Free Software Foundation,
+ * Version 3 der Lizenz oder (nach Ihrer Wahl) jeder neueren
+ * veröffentlichten Version, weiter verteilen und/oder modifizieren.
+ *
+ * Dieses Programm wird in der Hoffnung bereitgestellt, dass es nützlich sein wird, jedoch
+ * OHNE JEDE GEWÄHR,; sogar ohne die implizite
+ * Gewähr der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+ * Siehe die GNU General Public License für weitere Einzelheiten.
+ *
+ * Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+ * Programm erhalten haben. Wenn nicht, siehe <https://www.gnu.org/licenses/>.
  */
 
-#include <Arduino.h>
-#include "FS.h"
-#include <LITTLEFS.h>
+/**
+ * @file sampler.ino
+ * @author Marcel Licence
+ * @date 27.03.2021
+ *
+ * @brief   This file includes the implementation of the sample player
+ *          all samples are loaded from littleFS stored on the external flash
+ */
+
+
+#ifdef ARDUINO_RUNNING_CORE /* tested with arduino esp32 core version 2.0.2 */
+#include <LittleFS.h> /* Using library LittleFS at version 2.0.0 from https://github.com/espressif/arduino-esp32 */
+#else
+#include <LITTLEFS.h> /* Using library LittleFS_esp32 at version 1.0.6 from https://github.com/lorol/LITTLEFS */
+#define LittleFS LITTLEFS
+#endif
 
 #define CONFIG_LITTLEFS_CACHE_SIZE 512
 
-#define BLOCKSIZE	(512*1) /* only multiples of 2, otherwise the rest will not work */
-#define SAMPLECNT	8
+#define BLOCKSIZE   (512*1) /* only multiples of 2, otherwise the rest will not work */
+#define SAMPLECNT   8
 
-#define ARRAY_SIZE(a)	(sizeof(a)/sizeof(a[0]))
+#define ARRAY_SIZE(a)   (sizeof(a)/sizeof(a[0]))
 
 /* You only need to format LITTLEFS the first time you run a
    test or else use the LITTLEFS plugin to create a partition
@@ -125,14 +161,13 @@ union wavHeader
 
 inline void Sampler_Init()
 {
-    if (!LITTLEFS.begin(FORMAT_LITTLEFS_IF_FAILED))
+    if (!LittleFS.begin(FORMAT_LITTLEFS_IF_FAILED))
     {
-        Serial.println("LITTLEFS Mount Failed");
+        Serial.println("LittleFS Mount Failed");
         return;
     }
 
-    Sampler_ScanContents(LITTLEFS, "/", 5);
-
+    Sampler_ScanContents(LittleFS, "/", 5);
 
     Serial.println("---\nListSamples:");
 
@@ -142,13 +177,13 @@ inline void Sampler_Init()
 
         delay(10);
 
-        File f = LITTLEFS.open(samplePlayer[i].filename);
+        File f = LittleFS.open(samplePlayer[i].filename);
 
         if (f)
         {
             union wavHeader wav;
             int j = 0;
-            while (f.available() && ( j < sizeof(wav.wavHdr)) )
+            while (f.available() && (j < sizeof(wav.wavHdr)))
             {
                 wav.wavHdr[j] = f.read();
                 j++;
@@ -156,7 +191,7 @@ inline void Sampler_Init()
 
             j = 0;
             /* load first block of sample data */
-            while (f.available() && ( j < BLOCKSIZE) )
+            while (f.available() && (j < BLOCKSIZE))
             {
                 samplePlayer[i].preloadData[j] = f.read();
                 j++;
@@ -286,7 +321,7 @@ inline void Sampler_Process(float *left, float *right)
             {
                 samplePlayer[i].file.read(&samplePlayer[i].data[0], BLOCKSIZE);
             }
-            if ((dataOut < BLOCKSIZE ) && (samplePlayer[i].lastDataOut >= BLOCKSIZE)) /* first byte of second half */
+            if ((dataOut < BLOCKSIZE) && (samplePlayer[i].lastDataOut >= BLOCKSIZE))  /* first byte of second half */
             {
                 samplePlayer[i].file.read(&samplePlayer[i].data[BLOCKSIZE], BLOCKSIZE);
             }
@@ -302,7 +337,7 @@ inline void Sampler_Process(float *left, float *right)
             } sampleU;
 
             sampleU.u16 = (((uint16_t)samplePlayer[i].data[dataOut + 1]) << 8U) + (uint16_t)samplePlayer[i].data[dataOut + 0];
-            samplePlayer[i].signal = samplePlayer[i].volume * ((float)sampleU.s16) * (1.0f / ((float)(0x9000)) );
+            samplePlayer[i].signal = samplePlayer[i].volume * ((float)sampleU.s16) * (1.0f / ((float)(0x9000)));
             signal += samplePlayer[i].signal * samplePlayer[i].vel;
 
             samplePlayer[i].vel *= samplePlayer[i].decay;
