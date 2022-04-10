@@ -5,14 +5,21 @@
 
 [![Badge License]][License]
 
-[![Preview Thumbnail]][Preview Video]
+[![Preview Thumbnail]][Preview]
 
 </div>
 
 ---
 
-- **[Video Presentation][Preview Video]** of the initial state of this project
-- little **[Quick Start Guide][Quick Start]** to get started with arduino synthesizer / music projects
+<div align = center>
+
+  **⸢ [Preview] ⸥**
+  **⸢ [Guide] ⸥**
+  **⸢ [Discussions] ⸥**
+  
+</div>
+
+---
 
 The project has been tested on the DOIT ESP32 DEVKIT V1 (with ES8388)
 
@@ -21,9 +28,6 @@ The software will be automatically in recoding mode.
 Please do not forget to upload the data using the littleFs data upload.
 The files will be mapped to the keys.
 
-Questions, Ideas, Comments
----
-Please feel free to use the **[Discussion Area][Discussions]** of this project
 
 Derived projects 
 ---
@@ -36,9 +40,9 @@ Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2]
 [Badge License]: https://img.shields.io/badge/License-GPLv3-blue.svg
 
 [Preview Thumbnail]: img/Thumbnail.png
-[Preview Video]: https://youtu.be/vvA7vfouk84
+[Preview]: https://youtu.be/vvA7vfouk84
 
-[Quick Start]: https://youtu.be/ZNxGCB-d68g
+[Guide]: https://youtu.be/ZNxGCB-d68g
 
 [Discussions]: https://github.com/marcel-licence/esp32_drum_computer/discussions
 [License]: LICENSE
