@@ -3,6 +3,8 @@
 
 # ESP32 Drum Computer
 
+[![Badge License]][License]
+
 [![Preview Thumbnail]][Preview Video]
 
 </div>
@@ -31,13 +33,15 @@ Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2]
 
 <!----------------------------------------------------------------------------->
 
+[Badge License]: https://img.shields.io/badge/License-GPLv3-blue.svg
+
 [Preview Thumbnail]: img/Thumbnail.png
 [Preview Video]: https://youtu.be/vvA7vfouk84
 
 [Quick Start]: https://youtu.be/ZNxGCB-d68g
 
 [Discussions]: https://github.com/marcel-licence/esp32_drum_computer/discussions
-
+[License]: LICENSE
 
 [Erich Github]: https://github.com/ErichHeinemann/ESP32-Audio-Tests-ML
 [Erich Video 1]: https://youtu.be/XIrn2-dZn1U
