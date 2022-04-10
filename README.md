@@ -1,9 +1,11 @@
-<h1 align="center">esp32_drum_computer</h1>
-<h3 align="center">ESP32 drum computer / sample player / midi sequencer (Arduino audio project)</h3>  
-<p align="center"> 
-  <img src="img/splash.jpg" alt="project picture" width="480px" height="270px"><br>
-  <a href="video https://youtu.be/vvA7vfouk84">link to the video</a>
-</p>
+
+<div align = center>
+
+# ESP32 Drum Computer
+
+[![Preview Thumbnail]][Preview Video]
+
+</div>
 
 ---
 
@@ -29,7 +31,9 @@ Video of the Volca Beats PCM MOD [:tv:][Erich Video 1] (2) [:tv:][Erich Video 2]
 
 <!----------------------------------------------------------------------------->
 
+[Preview Thumbnail]: img/splash.jpg
 [Preview Video]: https://youtu.be/vvA7vfouk84
+
 [Quick Start]: https://youtu.be/ZNxGCB-d68g
 
 [Discussions]: https://github.com/marcel-licence/esp32_drum_computer/discussions
