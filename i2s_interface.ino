@@ -149,7 +149,7 @@ bool i2s_write_stereo_samples(float *fl_sample, float *fr_sample)
     sampleDataU.ch[1] = int32_t(*fl_sample * 1073741823.0f);
 #endif
 
-    static size_t bytes_written = 0;
+    size_t bytes_written = 0;
 
 #ifdef SAMPLE_SIZE_16BIT
     i2s_write(i2s_port_number, (const char *)&sampleDataU.sample, 4, &bytes_written, portMAX_DELAY);
