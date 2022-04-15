@@ -10,12 +10,20 @@
 - video presentation of the initial state of this project https://youtu.be/vvA7vfouk84
 - little quick start guide to get started with arduino synthesizer / music projects: https://youtu.be/ZNxGCB-d68g
 
-The project has been tested on the DOIT ESP32 DEVKIT V1 (with ES8388)
+Supported versions of board library
+---
+- ESP32 version 1.0.6 from https://github.com/espressif/arduino-esp32/releases/tag/1.0.6
+- ESP32 version 2.0.2 from https://github.com/espressif/arduino-esp32/releases/tag/2.0.2
+Please be aware that other versions might be not supported.
+
+The project has been tested on the ESP32 Audio Kit (with ES8388 audio codec)
+The project has been tested on the ESP32 Audio Kit (with AC101 audio codec)
 
 After uploading the firmware you should hear the metronome.
 The software will be automatically in recoding mode.
-Please do not forget to upload the data using the littleFs data upload.
-The files will be mapped to the keys.
+Please do not forget to upload the data using the LittleFS data upload.
+The files will be mapped to the keys automatically. The samples are stored in the ESP32 flash memory.
+SD card is not supported yet.
 
 Questions, Ideas, Comments
 ---
