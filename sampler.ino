@@ -38,6 +38,7 @@
  */
 
 
+#include <FS.h>
 #ifdef ARDUINO_RUNNING_CORE /* tested with arduino esp32 core version 2.0.2 */
 #include <LittleFS.h> /* Using library LittleFS at version 2.0.0 from https://github.com/espressif/arduino-esp32 */
 #else
@@ -82,13 +83,18 @@ struct samplePlayerS
     float pitch;
 };
 
+
+static void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels);
+
+
 struct samplePlayerS samplePlayer[SAMPLECNT];
+
 
 uint32_t sampleInfoCount = 0; /*!< storing the count if found samples in file system */
 float slowRelease; /*!< slow releasing signal will be used when sample playback stopped */
 
 
-void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels)
+static void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels)
 {
     Serial.printf("Listing directory: %s\r\n", dirname);
 

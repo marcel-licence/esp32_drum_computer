@@ -51,9 +51,7 @@
 
 
 #include <Arduino.h>
-#include <FS.h>
 
-//#include <SD_MMC.h>
 //#include <WiFi.h>
 
 //#define SPI_DISP_ENABLED
