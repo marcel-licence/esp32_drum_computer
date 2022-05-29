@@ -37,6 +37,12 @@
  *          all samples are loaded from littleFS stored on the external flash
  */
 
+#ifdef USE_SPIFFS_LEGACY
+
+#include <SPIFFS.h> /* Using library SPIFFS at version 1.0 from https://github.com/espressif/arduino-esp32 */
+#define LittleFS SPIFFS
+
+#else /* USE_SPIFFS_LEGACY */
 
 #include <FS.h>
 #ifdef ARDUINO_RUNNING_CORE /* tested with arduino esp32 core version 2.0.2 */
@@ -45,6 +51,8 @@
 #include <LITTLEFS.h> /* Using library LittleFS_esp32 at version 1.0.6 from https://github.com/lorol/LITTLEFS */
 #define LittleFS LITTLEFS
 #endif
+
+#endif /* USE_SPIFFS_LEGACY */
 
 #define CONFIG_LITTLEFS_CACHE_SIZE 512
 
