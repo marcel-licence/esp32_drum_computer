@@ -92,6 +92,8 @@
 #define MIDI_SYNC_MASTER /* turn this off to use external midi clock signal */
 //#define MIDI_CTRL_ENABLED /* used for virtual split point */
 
+//#define USE_SPIFFS_LEGACY /* enable this if you cannot you the LittleFS upload tool */
+
 /*
  * include the board configuration
  * there you will find the most hardware depending pin settings

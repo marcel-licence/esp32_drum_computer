@@ -213,7 +213,9 @@ inline void audio_task()
 inline
 void loop_1Hz(void)
 {
+#ifdef BLINK_LED_PIN
     Blink_Process();
+#endif
 }
 
 void loop()
