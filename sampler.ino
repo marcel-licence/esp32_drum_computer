@@ -37,6 +37,14 @@
  *          all samples are loaded from littleFS stored on the external flash
  */
 
+
+#ifdef __CDT_PARSER__
+#include <cdt.h>
+#endif
+
+
+#include <FS.h>
+
 #ifdef USE_SPIFFS_LEGACY
 
 #include <SPIFFS.h> /* Using library SPIFFS at version 1.0 from https://github.com/espressif/arduino-esp32 */
@@ -90,13 +98,18 @@ struct samplePlayerS
     float pitch;
 };
 
+
+static void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels);
+
+
 struct samplePlayerS samplePlayer[SAMPLECNT];
+
 
 uint32_t sampleInfoCount = 0; /*!< storing the count if found samples in file system */
 float slowRelease; /*!< slow releasing signal will be used when sample playback stopped */
 
 
-void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels)
+static void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels)
 {
     Serial.printf("Listing directory: %s\r\n", dirname);
 
@@ -142,7 +155,6 @@ void Sampler_ScanContents(fs::FS &fs, const char *dirname, uint8_t levels)
     }
 }
 
-
 /*
  * union is very handy for easy conversion of bytes to the wav header information
  */
@@ -181,6 +193,13 @@ inline void Sampler_Init()
 
     for (int i = 0; i < sampleInfoCount; i++)
     {
+        /* instert the '/' in front of the filename to ensure file can be found on root */
+        for (int n = 31; n > 0; n--)
+        {
+            samplePlayer[i].filename[n] = samplePlayer[i].filename[n - 1];
+        }
+        samplePlayer[i].filename[0] = '/';
+
         Serial.printf("s[%d]: %s\n", i, samplePlayer[i].filename);
 
         delay(10);
