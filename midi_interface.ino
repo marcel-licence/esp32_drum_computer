@@ -215,7 +215,7 @@ inline void Midi_ControlChange(uint8_t channel, uint8_t data1, uint8_t data2)
 
 inline void Midi_PitchBend(uint8_t ch, uint16_t bend)
 {
-    float value = ((float)bend - 8192.0f) * (1.0f / 8192.0f) - 1.0f;
+    float value = ((float)bend - 8192.0f) * (1.0f / 8192.0f);
     if (midiMapping.pitchBend != NULL)
     {
         midiMapping.pitchBend(ch, value);
@@ -259,7 +259,7 @@ inline void Midi_HandleShortMsg(uint8_t *data, uint8_t cable __attribute__((unus
         break;
     /* pitchbend */
     case 0xe0:
-        Midi_PitchBend(ch, ((((uint16_t)data[1])) + ((uint16_t)data[2] << 8)));
+        Midi_PitchBend(ch, ((((uint16_t)data[1])) + ((uint16_t)data[2] << 7)));
         break;
     /* song position pointer */
     case 0xf2:
@@ -288,6 +288,7 @@ void Midi_Setup()
 {
 #ifdef MIDI_RECV_FROM_SERIAL
     MidiPort.serial = &Serial;
+    Serial.printf("MIDI listen on Serial with %d baud\n", MIDI_SERIAL_BAUDRATE);
 #endif /* MIDI_RECV_FROM_SERIAL */
 
 #ifdef MIDI_PORT_ACTIVE
