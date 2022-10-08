@@ -52,6 +52,9 @@
 #endif
 
 
+#define SERIAL_BAUDRATE 115200
+
+
 /*
  * you can select one of the pre-defined boards
  * look into ML_SynthTools in ml_boards.h for more information
