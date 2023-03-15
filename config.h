@@ -60,11 +60,12 @@
  * look into ML_SynthTools in ml_boards.h for more information
  * @see https://github.com/marcel-licence/ML_SynthTools
  */
-//#define BOARD_ML_V1 /* activate this when using the ML PCB V1 */
+#define BOARD_ML_V1 /* activate this when using the ML PCB V1 */
 //#define BOARD_ESP32_AUDIO_KIT_AC101 /* activate this when using the ESP32 Audio Kit v2.2 with the AC101 codec */
 //#define BOARD_ESP32_AUDIO_KIT_ES8388 /* activate this when using the ESP32 Audio Kit v2.2 with the ES8388 codec */
 //#define BOARD_ESP32_DOIT /* activate this when using the DOIT ESP32 DEVKIT V1 board */
-#define BOARD_WEMOS_D1_MINI_ESP32
+//#define BOARD_WEMOS_D1_MINI_ESP32
+//#define BOARD_ADAFRUIT_QT_PY_ESP32S2
 
 /* can be used to pass line in through audio processing to output */
 //#define AUDIO_PASS_THROUGH

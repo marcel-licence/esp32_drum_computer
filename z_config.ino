@@ -128,6 +128,7 @@ struct midiMapping_s midiMapping =
     Synth_NoteOff,
     NULL,
     NULL,
+    NULL, /* assign program change callback here! */
     NULL,
     NULL,
     edirolMapping,

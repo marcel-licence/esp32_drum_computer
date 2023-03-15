@@ -299,7 +299,7 @@ inline void Sampler_NoteOn(uint8_t note, uint8_t vol)
     newSamplePlayer->lastDataOut = BLOCKSIZE; /* trigger loading second half */
 
     newSamplePlayer->volume = vol * NORM127MUL;
-    newSamplePlayer->vel = 1.0f;
+    newSamplePlayer->vel = 0.25f;
 
     newSamplePlayer->dataIn = 0;
 

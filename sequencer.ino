@@ -108,13 +108,13 @@ void Sequencer_Process(float *left, float *right)
         {
             if (seq_pos == 1)
             {
-                *left += ((float)((seq_counter & 32) / 32)) * 0.1f;
-                *right += ((float)((seq_counter & 32) / 32)) * 0.1f;
+                *left += ((float)((seq_counter & 32) / 32)) * 0.0625f - 0.03125f;
+                *right += ((float)((seq_counter & 32) / 32)) * 0.0625f - 0.03125f;
             }
             else if ((seq_pos % (4 * SEQ_SUBSTEP_MUL)) == 1)
             {
-                *left += ((float)((seq_counter & 64) / 64)) * 0.1f;
-                *right += ((float)((seq_counter & 64) / 64)) * 0.1f;
+                *left += ((float)((seq_counter & 64) / 64)) * 0.0625f - 0.03125f;
+                *right += ((float)((seq_counter & 64) / 64)) * 0.0625f - 0.03125f;
             }
         }
     }
