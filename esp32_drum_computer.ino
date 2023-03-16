@@ -204,9 +204,7 @@ inline void audio_task()
     for (int n = 0; n < SAMPLE_BUFFER_SIZE; n++)
     {
         Sampler_Process(&fl_sample[n], &fr_sample[n]);
-#if 0 /* effect seems buggy at the moment */
         Effect_Process(&fl_sample[n], &fr_sample[n]);
-#endif
         Sequencer_Process(&fl_sample[n], &fr_sample[n]);
     }
 
