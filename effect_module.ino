@@ -6,28 +6,22 @@
  * Author: Marcel Licence
  */
 
-struct filterCoeffT
-{
-    float aNorm[2] = {0.0f, 0.0f};
-    float bNorm[3] = {1.0f, 0.0f, 0.0f};
-};
-
-struct filterProcT
-{
-    struct filterCoeffT *filterCoeff;
-    float w[3];
-};
+#include <ml_waveform.h>
+#include <ml_filter.h>
 
 struct filterCoeffT filterGlobalC_LP, filterGlobalC_HP;
 struct filterProcT mainFilterL_LP, mainFilterR_LP, mainFilterL_HP, mainFilterR_HP;
 
+#if 0
 #define WAVEFORM_BIT    8UL /* 10 might be better here but needs much more memory */
 #define WAVEFORM_CNT    (1<<WAVEFORM_BIT)
 #define WAVEFORM_Q4     (1<<(WAVEFORM_BIT-2))
 #define WAVEFORM_MSK    ((1<<WAVEFORM_BIT)-1)
 #define WAVEFORM_I(i)   ((i) >> (32 - WAVEFORM_BIT)) & WAVEFORM_MSK
+#endif
 
-float sine[WAVEFORM_CNT];
+float static_sine[WAVEFORM_CNT];
+float *sine = static_sine;
 
 
 /*
@@ -137,13 +131,7 @@ inline void Filter_CalculateHP(float c, float reso, struct filterCoeffT *const  
     bNorm[2] = b[2] * factor;
 }
 
-inline void Filter_Process(float *const signal, struct filterProcT *const filterP)
-{
-    const float out = filterP->filterCoeff->bNorm[0] * (*signal) + filterP->w[0];
-    filterP->w[0] = filterP->filterCoeff->bNorm[1] * (*signal) - filterP->filterCoeff->aNorm[0] * out + filterP->w[1];
-    filterP->w[1] = filterP->filterCoeff->bNorm[2] * (*signal) - filterP->filterCoeff->aNorm[1] * out;
-    *signal = out;
-}
+
 
 
 void Effect_Init(void)
@@ -154,10 +142,10 @@ void Effect_Init(void)
         sine[i] = val;
     }
 
-    mainFilterL_LP.filterCoeff = &filterGlobalC_LP;
-    mainFilterR_LP.filterCoeff = &filterGlobalC_LP;
-    mainFilterL_HP.filterCoeff = &filterGlobalC_HP;
-    mainFilterR_HP.filterCoeff = &filterGlobalC_HP;
+    Filter_Init(&mainFilterL_LP, &filterGlobalC_LP);
+    Filter_Init(&mainFilterR_LP, &filterGlobalC_LP);
+    Filter_Init(&mainFilterL_HP, &filterGlobalC_HP);
+    Filter_Init(&mainFilterR_HP, &filterGlobalC_HP);
 }
 
 float highpassC = 0.0f;
