@@ -2,6 +2,9 @@
 
 #define ML_SYNTH_INLINE_DEFINITION
 #include <audio_module.h>
+#include <blink.h>
+#include <es8388.h>
+#include <esp32_audio_kit_module.h>
 #include <i2s_interface.h>
 #include <midi_interface.h>
 #include <midi_stream_player.h>
