@@ -5,9 +5,6 @@
   <a href="video https://youtu.be/vvA7vfouk84">link to the video</a>
 </p>
 
-[![Badge License]][License]
-[![Preview Thumbnail]][Preview]
-
 ---
 
 - video presentation of the initial state of this project https://youtu.be/vvA7vfouk84
