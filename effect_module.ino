@@ -27,13 +27,13 @@ float *sine = static_sine;
 /*
  * calculate coefficients of the 2nd order IIR filter
  */
-inline void Filter_CalculateTP(float c, float reso, struct filterCoeffT *const  filterC)
+inline void Filter_CalculateTP(float c, float reso, struct filterCoeffT *const filterC)
 {
     float *aNorm = filterC->aNorm;
     float *bNorm = filterC->bNorm;
 
     float Q = reso;
-    float  cosOmega, omega, sinOmega, alpha, a[3], b[3];
+    float cosOmega, omega, sinOmega, alpha, a[3], b[3];
 
     /*
      * change curve of cutoff a bit
@@ -79,13 +79,13 @@ inline void Filter_CalculateTP(float c, float reso, struct filterCoeffT *const  
     bNorm[2] = b[2] * factor;
 }
 
-inline void Filter_CalculateHP(float c, float reso, struct filterCoeffT *const  filterC)
+inline void Filter_CalculateHP(float c, float reso, struct filterCoeffT *const filterC)
 {
     float *aNorm = filterC->aNorm;
     float *bNorm = filterC->bNorm;
 
     float Q = reso;
-    float  cosOmega, omega, sinOmega, alpha, a[3], b[3];
+    float cosOmega, omega, sinOmega, alpha, a[3], b[3];
 
     /*
      * change curve of cutoff a bit
@@ -130,8 +130,6 @@ inline void Filter_CalculateHP(float c, float reso, struct filterCoeffT *const  
     bNorm[1] = b[1] * factor;
     bNorm[2] = b[2] * factor;
 }
-
-
 
 
 void Effect_Init(void)
@@ -212,7 +210,7 @@ void Effect_SetBiCutoff(float value)
 
 void Effect_SetBiReso(float value)
 {
-    filtReso =  0.5f + 10 * value * value * value; /* min q is 0.5 here */
+    filtReso = 0.5f + 10 * value * value * value; /* min q is 0.5 here */
     Serial.printf("main filter reso: %0.3f\n", filtReso);
 }
 

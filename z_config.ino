@@ -47,8 +47,6 @@
 #endif
 
 
-
-
 /*
  * this mapping is used for the edirol pcr-800
  * this should be changed when using another controller

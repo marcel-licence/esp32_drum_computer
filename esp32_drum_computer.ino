@@ -203,7 +203,7 @@ inline void audio_task()
     }
 
     Reverb_Process(fl_sample, SAMPLE_BUFFER_SIZE);
-    memcpy(fr_sample,  fl_sample, sizeof(fr_sample));
+    memcpy(fr_sample, fl_sample, sizeof(fr_sample));
 
     Audio_Output(fl_sample, fr_sample);
 

@@ -4,14 +4,14 @@
  * Author: Marcel Licence
  */
 
-#define SEQ_TRACK_CNT	8
-#define SEQ_STEPS		16
+#define SEQ_TRACK_CNT   8
+#define SEQ_STEPS       16
 
 /*
  * 1: only 4th notes
  * 2: for 8th notes
  */
-#define SEQ_SUBSTEP_MUL	2
+#define SEQ_SUBSTEP_MUL 2
 
 struct seq_track_s
 {
@@ -47,7 +47,7 @@ void Sequencer_Init(void)
     }
 }
 
-#define DEFAULT_BPM		140
+#define DEFAULT_BPM     140
 
 /*
  * using * 2 would allow playing 8th
@@ -198,7 +198,7 @@ inline void Sequencer_NoteOn(uint8_t note, uint8_t vol)
         }
     }
 
-    if (seqMode ==  seq_mode_idle)
+    if (seqMode == seq_mode_idle)
     {
         Sampler_NoteOn(note, vol);
     }
